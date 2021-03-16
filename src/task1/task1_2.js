@@ -34,7 +34,10 @@ function copyAllFile(from, to) {
 function copyInParts(from, to) {
   const readStream = fs.createReadStream(from);
   const writeStream = fs.createWriteStream(to);
-  readStream.pipe(csv()).pipe(writeStream);
+  readStream.pipe(csv())
+    .on('error', (error) => console.error(error))
+    .pipe(writeStream)
+    .on('error', (error) => console.error(error));
 }
 
 
