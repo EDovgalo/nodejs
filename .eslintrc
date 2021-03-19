@@ -13,6 +13,7 @@
     "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 0 }],
     "no-constant-condition": ["error", { "checkLoops": false }],
     "no-await-in-loop": "off",
-    "linebreak-style": "off"
+    "linebreak-style": "off",
+    "indent": ["error", 4]
   }
 }

@@ -1,18 +1,8 @@
-const readline = require('readline');
-const util = require('util');
+process.stdin.setEncoding('utf8');
 
-const rl = readline.createInterface({
-  input: process.stdin
-});
-
-const question = util.promisify(rl.question).bind(rl);
-
-async function run() {
-  while (true) {
-    const answer = await question('');
-    const result = answer && answer.split('').reverse().join('');
-    console.log(result);
-  }
-}
-
-run();
+process.stdin
+    .on('data', (data) => {
+        const result = data.trim().split('').reverse().join('');
+        console.log(result);
+    })
+    .on('error', (err) => console.error(err));

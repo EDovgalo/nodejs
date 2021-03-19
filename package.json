@@ -8,6 +8,7 @@
     "task1_2": "nodemon ./src/task1/task1_2  --exec babel-node --presets es2015",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "type": "module",
   "author": "edovgalo@gmail.com",
   "license": "ISC",
   "devDependencies": {
