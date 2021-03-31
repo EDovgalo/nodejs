@@ -5,8 +5,7 @@ const userSchema = Joi.object({
         .min(1)
         .required(),
     password: Joi.string()
-        .regex(/([0-9][a-z])|([a-z][0-9])/)
-        .message('password must contains numbers and letters')
+        .alphanum()
         .required(),
     age: Joi.number()
         .min(4)

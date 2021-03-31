@@ -30,7 +30,7 @@ export default class UsersService {
         throw new BaseError(400, 'user not found');
     }
 
-    getUsers(limit = this.users.length, loginSubstring = '') {
+    getUsers(limit = 5, loginSubstring = '') {
         const result = [...this.users];
         return result.filter((item) => item.login.includes(loginSubstring))
             .sort((a, b) => a.login.localeCompare(b.login))
@@ -43,5 +43,9 @@ export default class UsersService {
             return user;
         }
         throw new BaseError(400, 'user not found');
+    }
+
+    getUserByLogin(login) {
+        return this.users.find((value) => value.login === login);
     }
 }

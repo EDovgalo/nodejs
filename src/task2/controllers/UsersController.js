@@ -10,7 +10,7 @@ export default class UsersController {
     }
 
     getUsers(req, resp) {
-        const { limit = this.userService.users.length, loginSubstring = '' } = req.query;
+        const { limit = 5, loginSubstring = '' } = req.query;
         const result = this.userService.getUsers(limit, loginSubstring);
         resp.json({ result });
     }
