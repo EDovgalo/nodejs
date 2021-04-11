@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "task1_1": "nodemon ./src/task1/task1_1  --exec babel-node --presets es2015",
-    "task1_2": "nodemon ./src/task1/task1_2  --exec babel-node --presets es2015",
-    "task2": "nodemon ./src/index  --exec babel-node --presets es2015",
+    "start": "nodemon ./src/index  --exec babel-node --presets es2015",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
@@ -29,6 +27,8 @@
     "express": "^4.17.1",
     "express-joi-validation": "^5.0.0",
     "joi": "^17.4.0",
+    "pg": "^8.5.1",
+    "sequelize": "^6.6.2",
     "uuid": "^8.3.2"
   }
 }
