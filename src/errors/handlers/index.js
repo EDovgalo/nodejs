@@ -1,4 +1,4 @@
-import baseErrorHandler from './baseErrorHandler.js';
+import errorHandler from './error-handler.js';
 import joiErrorHandler from './joiErrorHandler.js';
 
-export { baseErrorHandler, joiErrorHandler };
+export { errorHandler, joiErrorHandler };
