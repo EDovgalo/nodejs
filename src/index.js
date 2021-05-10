@@ -7,11 +7,24 @@ import userGroupRouter from './user-group/index.js';
 
 import { errorHandler, joiErrorHandler } from './errors/handlers/index.js';
 import db from './config/db.js';
+import infoLogger from './loggers/info.logger.js';
+import errorLogger from './loggers/error.logger.js';
+import executionTimeLogger from './loggers/execution-time.logger.js';
+
 
 function prepareDB(dbORM, pathToSql) {
     const usersSql = fs.readFileSync(pathToSql, 'utf-8');
     return dbORM.query(usersSql);
 }
+
+process.on('uncaughtException', (err) => {
+    errorLogger(err);
+});
+
+process.on('unhandledRejection', (err) => {
+    errorLogger(err);
+});
+
 
 prepareDB(db, './src/sql-scripts/create-users.sql')
     .then(() => {
@@ -19,6 +32,8 @@ prepareDB(db, './src/sql-scripts/create-users.sql')
         const port = 3000;
 
         app.use(express.json());
+        app.use(executionTimeLogger);
+        app.use(infoLogger);
 
         app.use('/api/user', userRouter);
         app.use('/api/group', groupRouter);
@@ -28,5 +43,4 @@ prepareDB(db, './src/sql-scripts/create-users.sql')
         app.use(errorHandler);
 
         app.listen(port, () => console.log(`App running on port ${port}`));
-    })
-    .catch((err) => console.error(err));
+    });
