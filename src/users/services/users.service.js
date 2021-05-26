@@ -50,4 +50,12 @@ export default class UsersService {
             throw new BaseError(400, 'user not found');
         }
     }
+
+    async findUserByLogin(login) {
+        return this.usersModel.findOne({
+            where: {
+                login
+            }
+        });
+    }
 }
