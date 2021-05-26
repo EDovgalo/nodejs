@@ -12,7 +12,7 @@ export default class UsersService {
         try {
             return await this.usersModel.create(data);
         } catch (error) {
-            throw new BaseError(400, error.original.detail);
+            throw new BaseError(400, (error.original && error.original.detail) || error);
         }
     }
 
