@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./src/index  --exec \"node --require dotenv/config --require babel-register\" babel-node --presets es2015",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "type": "module",
   "author": "edovgalo@gmail.com",
@@ -20,7 +20,10 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-babel": "^5.3.1",
     "eslint-plugin-import": "^2.22.1",
-    "nodemon": "^2.0.7"
+    "eslint-plugin-jest": "^24.3.6",
+    "jest": "^27.0.4",
+    "nodemon": "^2.0.7",
+    "sinon": "^11.1.1"
   },
   "dependencies": {
     "cors": "^2.8.5",
