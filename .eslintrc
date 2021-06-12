@@ -3,7 +3,10 @@
   "parserOptions": {
     "ecmaVersion": 8
   },
-  "plugins": [ "babel" ],
+  "plugins": [ "babel", "jest" ],
+  "env": {
+    "jest": true
+  },
   "parser": "babel-eslint",
   "rules": {
     "brace-style": 2,
